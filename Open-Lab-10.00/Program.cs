@@ -6,11 +6,8 @@ namespace Open_Lab_10._00
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine();
-
-            
-            
+            /*Console.WriteLine("Hello World!");
+            Console.WriteLine();*/
 
             Console.WriteLine("Zadaj nazov knihy: ");
             string title = Console.ReadLine();
@@ -37,6 +34,17 @@ namespace Open_Lab_10._00
 
             Book LOTR = new Book(title, pages, category, author, releaseDate);
             Console.WriteLine($"{LOTR.category} {LOTR.author} {LOTR.releaseDate}");
+
+            Book LOTR2 = new Book();
+            LOTR2.ListInformation();
+
+            Book LOTR3 = new Book(title, pages);
+            LOTR3.ListInformation();
+
+            Book HOBIT = new Book(title, pages, category, author, releaseDate);
+            HOBIT.ListInformation();
+
+            
         }
     }
 
@@ -57,6 +65,32 @@ namespace Open_Lab_10._00
             this.category = category;
             this.author = author;
             this.releaseDate = releaseDate;
+        }
+
+        public Book()
+        {
+            title = "-1";
+
+            pages = -1;
+
+            category = "-1";
+
+            author = "-1";
+
+            releaseDate = -1;
+        }
+
+        public Book(string title, int pages)
+        {
+            this.title = title;
+
+            this.pages = pages;
+
+            category = "-1";
+
+            author = "-1";
+
+            releaseDate = -1;
         }
 
         public void ListInformation()
