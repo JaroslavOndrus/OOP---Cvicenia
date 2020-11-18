@@ -39,24 +39,41 @@ namespace Open_Lab_10._00
             Book LOTR = new Book(title, pages, category, author, releaseDate);
             Console.WriteLine($"{LOTR.Title} {LOTR.Pages} {LOTR.Category} {LOTR.Author} {LOTR.ReleaseDate}");*/
 
-            Book LOTR2 = new Book();
+            /*Book LOTR2 = new Book();
             LOTR2.VypisInformacie();
 
             Book LOTR3 = new Book("nazov knihy", 158);
             LOTR3.VypisInformacie();
 
             Book HOBIT = new Book("HOBIT", 2, "fantasy", "autor hobita", 2009);
+            HOBIT.VypisInformacie();*/
+
+            Book.categoryList.Add("detske");
+            Book.categoryList.Add("romanticke");
+            Book.categoryList.Add("Naucne");
+            Book.categoryList.Add("scifi");
+            Book.categoryList.Add("dobrodruzne");
+
+            string priklad = Book.categoryList[4];
+
+            Book HOBIT = new Book("HOBIT", 4, priklad, "autor", 2005);
             HOBIT.VypisInformacie();
-
-
         }
     }
 
     class Book
     {
+        /// <summary>
+        /// trojlomitkovyzapis
+        /// </summary>
+        public static List<string> categoryList = new List<string>();
+        
+        /// <summary>
+        /// trojlomitkovyzapis
+        /// </summary>
         public string Title { get; set; }
         public int Pages { get; set; }
-        public string Category { get; set; }
+        public string Category { private get; set; }
         public string Author { get; set; }
         public int ReleaseDate { get; set; }
 
