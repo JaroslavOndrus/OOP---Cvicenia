@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Open_Lab_10._00
 {
@@ -7,13 +8,16 @@ namespace Open_Lab_10._00
         static void Main(string[] args)
         {
             /*Console.WriteLine("Hello World!");
-            Console.WriteLine();*/
+            Console.WriteLine();
 
-            Console.WriteLine("Zadaj nazov knihy: ");
+            Book LOTR = new Book("Nazov", 3);
+            Console.WriteLine(LOTR.Title);*/
+
+            /*Console.WriteLine("Zadajte nazov knihy: ");
             string title = Console.ReadLine();
 
             Console.WriteLine("Zadajte pocet stran: ");
-            int pages = int.Parse(Console.ReadLine());
+            int pages = Int32.Parse(Console.ReadLine());
             if(pages < 0)
             {
                 pages = 1;
@@ -22,80 +26,70 @@ namespace Open_Lab_10._00
             Console.WriteLine("Zadajte kategoriu: ");
             string category = Console.ReadLine();
 
-            Console.WriteLine("Zadaj autora: ");
+            Console.WriteLine("Zadajte autora: ");
             string author = Console.ReadLine();
 
-            Console.WriteLine("Zadaj datum vydania: ");
+            Console.WriteLine("Zadajte datum vydania knihy: ");
             int releaseDate = int.Parse(Console.ReadLine());
-            if (releaseDate < 1450 || releaseDate > 2021)
+            if(releaseDate <= 1450 || releaseDate >= 2021)
             {
                 releaseDate = -1;
             }
 
             Book LOTR = new Book(title, pages, category, author, releaseDate);
-            Console.WriteLine($"{LOTR.category} {LOTR.author} {LOTR.releaseDate}");
+            Console.WriteLine($"{LOTR.Title} {LOTR.Pages} {LOTR.Category} {LOTR.Author} {LOTR.ReleaseDate}");*/
 
             Book LOTR2 = new Book();
-            LOTR2.ListInformation();
+            LOTR2.VypisInformacie();
 
-            Book LOTR3 = new Book(title, pages);
-            LOTR3.ListInformation();
+            Book LOTR3 = new Book("nazov knihy", 158);
+            LOTR3.VypisInformacie();
 
-            Book HOBIT = new Book(title, pages, category, author, releaseDate);
-            HOBIT.ListInformation();
+            Book HOBIT = new Book("HOBIT", 2, "fantasy", "autor hobita", 2009);
+            HOBIT.VypisInformacie();
 
-            
+
         }
     }
 
     class Book
     {
-        private string title { get; set; }
-        private int pages { get; set; }
-        public string category { get; set; }
-        public string author { get; set; }
-        public int releaseDate { get; set; }
+        public string Title { get; set; }
+        public int Pages { get; set; }
+        public string Category { get; set; }
+        public string Author { get; set; }
+        public int ReleaseDate { get; set; }
 
-
-
-        public Book(string title, int pages, string category, string author, int releaseDate)
+        public void VypisInformacie()
         {
-            this.title = title;
-            this.pages = pages;
-            this.category = category;
-            this.author = author;
-            this.releaseDate = releaseDate;
+            Console.WriteLine($"{Title} {Pages} {Category} {Author} {ReleaseDate}");
         }
 
         public Book()
         {
-            title = "-1";
-
-            pages = -1;
-
-            category = "-1";
-
-            author = "-1";
-
-            releaseDate = -1;
+            Title = "-1";
+            Pages = -1;
+            Category = "-1";
+            Author = "-1";
+            ReleaseDate = -1;
         }
 
         public Book(string title, int pages)
         {
-            this.title = title;
-
-            this.pages = pages;
-
-            category = "-1";
-
-            author = "-1";
-
-            releaseDate = -1;
+            Title = title;
+            Pages = pages;
+            Category = "-1";
+            Author = "-1";
+            ReleaseDate = -1;
         }
 
-        public void ListInformation()
+        public Book(string title, int pages, string category, string author, int releaseDate)
         {
-            Console.WriteLine($"{title} {pages} {category} {author} {releaseDate}");
+            Title = title;
+            Pages = pages;
+            Category = category;
+            Author = author;
+            ReleaseDate = releaseDate;
         }
     }
 }
