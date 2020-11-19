@@ -48,26 +48,20 @@ namespace Open_Lab_10._00
             Book HOBIT = new Book("HOBIT", 2, "fantasy", "autor hobita", 2009);
             HOBIT.VypisInformacie();*/
 
-            Book.categoryList.Add("detske");
-            Book.categoryList.Add("romanticke");
-            Book.categoryList.Add("Naucne");
-            Book.categoryList.Add("scifi");
-            Book.categoryList.Add("dobrodruzne");
-
-            string priklad = Book.categoryList[4];
-
-            Book HOBIT = new Book("HOBIT", 4, priklad, "autor", 2005);
+            Book HOBIT = new Book("Hobit", 2588, Book.categoryList[0], "Autor hobita", 2015);
             HOBIT.VypisInformacie();
         }
     }
+
+    
 
     class Book
     {
         /// <summary>
         /// trojlomitkovyzapis
         /// </summary>
-        public static List<string> categoryList = new List<string>();
-        
+        public static List<string> categoryList = new List<string> {"detske", "romanticke", "naucne", "scifi", "doubrodruzne" };
+
         /// <summary>
         /// trojlomitkovyzapis
         /// </summary>
